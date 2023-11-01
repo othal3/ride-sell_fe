@@ -8,7 +8,9 @@ function MyNavbar() {
       <nav className=" bg-purple-400 w-screen py-5">
          <div className=" overflow-hidden ">
             <div className="flex relative items-center justify-around z-50 w-screen space-x-[10vw] ">
-               <h1 className=" text-4xl font-bold">RIDE&SELL</h1>
+               <h1 className=" text-4xl font-bold">
+                  <a href="/">RIDE&SELL</a>
+               </h1>
                <div className=" block md:hidden ">
                   <Hamburger
                      color="white"
