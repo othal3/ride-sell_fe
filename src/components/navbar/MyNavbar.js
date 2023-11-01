@@ -48,8 +48,20 @@ function MyNavbar() {
                      isOpen ? "top-16" : "top-[-100vh]"
                   } left-0 absolute bg-purple-400 w-screen flex items-center flex-col ease-in-out duration-300 py-8`}
                >
-                  <p>ricerca</p>
-                  <p>vendi</p>
+                  <ul className="navMobList">
+                     <li>
+                        <button>Cerca Auto</button>
+                     </li>
+                     <li>
+                        <button>Inserisci Auto</button>
+                     </li>
+                     <li>
+                        <button>Inserisci Auto</button>
+                     </li>
+                     <li>
+                        <button id="loginButton">Login</button>
+                     </li>
+                  </ul>
                </div>
             </div>
          </div>
