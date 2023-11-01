@@ -4,9 +4,24 @@
 
 @layer base {
    #root {
-      @apply h-screen w-screen font-mono;
+      @apply h-screen w-screen;
    }
    h1 {
-      @apply text-white;
+      @apply text-slate-50 font-mono;
+   }
+}
+
+@layer components {
+   .navList {
+      @apply flex justify-center items-center text-slate-50;
+   }
+   .navList > li {
+      @apply mx-8;
+   }
+   .navList > li > button {
+      @apply hover:bg-slate-50 hover:text-purple-400 transition-colors duration-200 rounded-full py-2.5 px-5;
+   }
+   #loginButton {
+      @apply bg-slate-50 text-purple-400 py-2.5 px-5 rounded-full border-2 hover:bg-slate-200 duration-200;
    }
 }

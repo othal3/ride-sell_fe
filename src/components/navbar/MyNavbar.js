@@ -5,9 +5,9 @@ function MyNavbar() {
    const [isOpen, setIsOpen] = useState(false);
 
    return (
-      <nav className=" bg-purple-400 h-1/3 w-screen pt-5">
+      <nav className=" bg-purple-400 w-screen py-5">
          <div className=" overflow-hidden ">
-            <div className=" absolute flex items-center justify-around z-50 w-screen space-x-[10vw]">
+            <div className="flex relative items-center justify-around z-50 w-screen space-x-[10vw] ">
                <h1 className=" text-4xl font-bold">RIDE&SELL</h1>
                <div className=" block md:hidden ">
                   <Hamburger
@@ -24,8 +24,8 @@ function MyNavbar() {
                   />
                </div>
                <div className=" hidden md:block ">
-                  <div className="">
-                     <ul>
+                  <div>
+                     <ul className="navList">
                         <li>
                            <button>Cerca Auto</button>
                         </li>
@@ -34,6 +34,9 @@ function MyNavbar() {
                         </li>
                         <li>
                            <button>Inserisci Auto</button>
+                        </li>
+                        <li>
+                           <button id="loginButton">Login</button>
                         </li>
                      </ul>
                   </div>
