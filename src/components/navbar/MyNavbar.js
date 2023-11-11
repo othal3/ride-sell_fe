@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Sling as Hamburger } from "hamburger-react";
+import { useNavigate } from "react-router-dom";
 
 function MyNavbar() {
    const [isOpen, setIsOpen] = useState(false);
+   const navigate = useNavigate();
+
+   const loginClick = (e) => {
+      navigate("/login");
+   };
 
    return (
       <nav className=" bg-purple-400 w-screen py-5">
@@ -38,7 +44,9 @@ function MyNavbar() {
                            <button>Inserisci Auto</button>
                         </li>
                         <li>
-                           <button id="loginButton">Login</button>
+                           <button id="loginButton" onClick={loginClick}>
+                              Login
+                           </button>
                         </li>
                      </ul>
                   </div>
@@ -48,7 +56,7 @@ function MyNavbar() {
                <div
                   className={`${
                      isOpen ? "top-16" : "top-[-100vh]"
-                  } left-0 absolute bg-purple-400 w-screen flex items-center flex-col ease-in-out duration-300 py-8`}
+                  } left-0 absolute bg-purple-400 w-screen flex items-center flex-col ease-in-out duration-300 py-8 z-10`}
                >
                   <ul className="navMobList">
                      <li>
@@ -61,7 +69,9 @@ function MyNavbar() {
                         <button>Inserisci Auto</button>
                      </li>
                      <li>
-                        <button id="loginButton">Login</button>
+                        <button id="loginButton" onClick={loginClick}>
+                           Login
+                        </button>
                      </li>
                   </ul>
                </div>
