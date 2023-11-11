@@ -26,7 +26,6 @@ function Register() {
 
    const onSubmit = async (e) => {
       e.preventDefault();
-      console.log(`${process.env.REACT_APP_SERVER_BASE_URL}/user/create`);
 
       try {
          const response = await fetch(
