@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 function Login() {
    const navigate = useNavigate();
    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+   const [loginData, setLoginData] = useState({});
+   const [login, setLogin] = useState(null);
 
    const registerClick = (e) => {
       navigate("/register");
@@ -15,16 +17,61 @@ function Login() {
       setIsPasswordVisible(!isPasswordVisible);
    };
 
+   const handleInputChange = (e) => {
+      const { name, value } = e.target;
+
+      setLoginData({
+         ...loginData,
+         [name]: value,
+      });
+      console.log(loginData);
+   };
+
+   const onSubmit = async (e) => {
+      e.preventDefault();
+
+      try {
+         const response = await fetch(
+            `${process.env.REACT_APP_SERVER_BASE_URL}/login`,
+            {
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               method: "POST",
+               body: JSON.stringify(loginData),
+            }
+         );
+         const data = await response.json();
+
+         if (data.token) {
+            localStorage.setItem("loggedInUser", JSON.stringify(data.token));
+            console.log(data.token);
+            navigate("/");
+         }
+
+         setLogin(data);
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
    return (
       <MainLayout>
-         <div className=" w-screen mt-60 flex justify-center ">
+         <div className=" w-screen mt-4 md:mt-60 flex justify-center ">
             <div className=" h-[fit] shadow-lg self-center bg-white p-8 rounded-lg grid grid-cols-1">
-               <form className=" grid grid-cols-1 gap-3 border-b-2 border-slate-200 pb-5">
+               <form
+                  className=" grid grid-cols-1 gap-3 border-b-2 border-slate-200 pb-5"
+                  onSubmit={onSubmit}
+               >
                   <h2 className=" text-4xl font-bold pb-2 ">LOGIN</h2>
                   <div className="formInput">
                      <label>E-mail</label>
                      <div>
-                        <input type="text" name="email" />
+                        <input
+                           type="text"
+                           name="email"
+                           onFocus={handleInputChange}
+                        />
                      </div>
                   </div>
                   <div className="formInput">
@@ -33,6 +80,7 @@ function Login() {
                         <input
                            type={isPasswordVisible ? "text" : "password"}
                            name="password"
+                           onFocus={handleInputChange}
                         />
                         <button
                            onClick={visibleClick}

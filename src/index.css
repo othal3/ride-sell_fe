@@ -52,4 +52,20 @@
    .formInput > div > input {
       @apply border-2 rounded-lg px-3 py-1 border-slate-200 outline-0 focus:border-slate-500;
    }
+
+   .registerSelector {
+      @apply flex justify-between mb-5;
+   }
+
+   .registerSelector > button {
+      @apply flex flex-col items-center pt-4;
+   }
+
+   .registerSelector > button > img {
+      @apply w-10;
+   }
+
+   .registerSelector > button > h3 {
+      @apply font-bold;
+   }
 }
