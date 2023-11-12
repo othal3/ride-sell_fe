@@ -16,6 +16,7 @@ function CompanyForm() {
          ...formData,
          [name]: value,
       });
+      console.log(formData);
    };
    const onSubmit = async (e) => {
       e.preventDefault();

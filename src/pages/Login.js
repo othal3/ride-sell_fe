@@ -70,7 +70,7 @@ function Login() {
                         <input
                            type="text"
                            name="email"
-                           onFocus={handleInputChange}
+                           onChange={handleInputChange}
                         />
                      </div>
                   </div>
@@ -80,7 +80,7 @@ function Login() {
                         <input
                            type={isPasswordVisible ? "text" : "password"}
                            name="password"
-                           onFocus={handleInputChange}
+                           onChange={handleInputChange}
                         />
                         <button
                            onClick={visibleClick}
