@@ -54,13 +54,13 @@ function UserForm() {
          <div className="formInput">
             <label>name</label>
             <div>
-               <input name="firstname" onChange={handleInputChange} />
+               <input name="firstName" onChange={handleInputChange} />
             </div>
          </div>
          <div className="formInput">
             <label>lastname</label>
             <div>
-               <input name="lastname" onChange={handleInputChange} />
+               <input name="lastName" onChange={handleInputChange} />
             </div>
          </div>
          <div className="formInput">

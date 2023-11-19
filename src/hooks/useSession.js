@@ -16,7 +16,7 @@ const useSession = () => {
          const currentDate = new Date();
 
          if (expirationDate < currentDate) {
-            localStorage.clear();
+            localStorage.removeItem("loggedInUser");
          }
       }
    };
@@ -25,9 +25,11 @@ const useSession = () => {
       if (session && window.location.pathname === "/login") {
          navigate("/", { replace: true });
       }
-      checkTokenExpirationTime();
    }, [navigate, session]);
 
+   useEffect(() => {
+      checkTokenExpirationTime();
+   });
    return decodedSession;
 };
 
