@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { Sling as Hamburger } from "hamburger-react";
 import { useNavigate } from "react-router-dom";
+import useSession from "../../hooks/useSession";
 
 function MyNavbar() {
    const [isOpen, setIsOpen] = useState(false);
    const navigate = useNavigate();
+   const session = useSession();
 
    const loginClick = (e) => {
       navigate("/login");
+   };
+
+   const handleLogout = () => {
+      localStorage.removeItem("loggedInUser");
+      navigate("/");
+   };
+
+   const handleUser = () => {
+      navigate("/user");
    };
 
    return (
@@ -41,12 +52,24 @@ function MyNavbar() {
                            <button>Inserisci Auto</button>
                         </li>
                         <li>
-                           <button>Inserisci Auto</button>
+                           <button onClick={handleLogout}>
+                              Inserisci Auto
+                           </button>
                         </li>
                         <li>
-                           <button id="loginButton" onClick={loginClick}>
-                              Login
-                           </button>
+                           {session === null ? (
+                              <button id="loginButton" onClick={loginClick}>
+                                 Login
+                              </button>
+                           ) : (
+                              <button id="avatarButton">
+                                 <img
+                                    className=" w-10 h-10 rounded-full bg-slate-50 hover:bg-slate-200 transition ease-in-out duration-300 object-cover"
+                                    src={session.avatar}
+                                    onClick={handleUser}
+                                 />
+                              </button>
+                           )}
                         </li>
                      </ul>
                   </div>
@@ -69,9 +92,19 @@ function MyNavbar() {
                         <button>Inserisci Auto</button>
                      </li>
                      <li>
-                        <button id="loginButton" onClick={loginClick}>
-                           Login
-                        </button>
+                        {session === null ? (
+                           <button id="loginButton" onClick={loginClick}>
+                              Login
+                           </button>
+                        ) : (
+                           <button id="avatarButton">
+                              <img
+                                 className=" w-10 h-10 rounded-full bg-slate-50 p-2 hover:bg-slate-200 transition ease-in-out duration-300 object-cover"
+                                 src={session.avatar}
+                                 onClick={handleUser}
+                              />
+                           </button>
+                        )}
                      </li>
                   </ul>
                </div>

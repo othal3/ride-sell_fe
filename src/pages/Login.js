@@ -24,7 +24,6 @@ function Login() {
          ...loginData,
          [name]: value,
       });
-      console.log(loginData);
    };
 
    const onSubmit = async (e) => {
@@ -45,7 +44,6 @@ function Login() {
 
          if (data.token) {
             localStorage.setItem("loggedInUser", JSON.stringify(data.token));
-            console.log(data.token);
             navigate("/");
          }
 

@@ -10,17 +10,19 @@ const useSession = () => {
    const navigate = useNavigate();
 
    const checkTokenExpirationTime = () => {
-      const convertUnixDateToMillisecond = decodedSession.exp * 1000;
-      const expirationDate = new Date(convertUnixDateToMillisecond);
-      const currentDate = new Date();
+      if (decodedSession && decodedSession.exp) {
+         const convertUnixDateToMillisecond = decodedSession.exp * 1000;
+         const expirationDate = new Date(convertUnixDateToMillisecond);
+         const currentDate = new Date();
 
-      if (expirationDate < currentDate) {
-         localStorage.clear();
+         if (expirationDate < currentDate) {
+            localStorage.clear();
+         }
       }
    };
 
    useEffect(() => {
-      if (!session) {
+      if (session && window.location.pathname === "/login") {
          navigate("/", { replace: true });
       }
       checkTokenExpirationTime();
