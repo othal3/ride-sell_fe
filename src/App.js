@@ -6,6 +6,8 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import UserData from "./pages/UserData";
+import AddCar from "./pages/AddCar";
+import PostPage from "./pages/PostPage";
 
 function App() {
    return (
@@ -16,6 +18,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/user" element={<User />} />
             <Route path="/userData" element={<UserData />} />
+            <Route path="/addCar" element={<AddCar />} />
+            <Route path="/postPage" element={<PostPage />} />
 
             <Route path="*" element={<NotFound />} />
          </Routes>

@@ -15,7 +15,6 @@ function Register() {
 
    const handleButtonSelected = (e) => {
       setSelectedButton(e.currentTarget.id);
-      console.log(slectedButton);
    };
 
    return (

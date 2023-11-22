@@ -201,7 +201,7 @@ function UserData() {
                            />
 
                            <input
-                              id="imageImput"
+                              id="imageInput"
                               type="file"
                               accept="image/*"
                               name="avatar"
@@ -209,7 +209,7 @@ function UserData() {
                               className=" hidden "
                            />
                            <label
-                              htmlFor="imageImput"
+                              htmlFor="imageInput"
                               className=" font-bold text-xl bg-purple-400 text-slate-50 py-2.5 px-5 rounded-full flex items-center gap-3 cursor-pointer "
                            >
                               <img
@@ -336,7 +336,7 @@ function UserData() {
                            />
 
                            <input
-                              id="imageImput"
+                              id="imageInput"
                               type="file"
                               accept="image/*"
                               name="avatar"
@@ -344,7 +344,7 @@ function UserData() {
                               className=" hidden "
                            />
                            <label
-                              htmlFor="imageImput"
+                              htmlFor="imageIput"
                               className=" font-bold text-xl bg-purple-400 text-slate-50 py-2.5 px-5 rounded-full flex items-center gap-3 cursor-pointer "
                            >
                               <img

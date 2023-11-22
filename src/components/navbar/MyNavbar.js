@@ -21,6 +21,10 @@ function MyNavbar() {
       navigate("/user");
    };
 
+   const handleAddCar = () => {
+      navigate("/addCar");
+   };
+
    return (
       <nav className=" bg-purple-400 w-screen py-5">
          <div className=" overflow-hidden ">
@@ -49,7 +53,9 @@ function MyNavbar() {
                            <button>Cerca Auto</button>
                         </li>
                         <li>
-                           <button>Inserisci Auto</button>
+                           <button onClick={handleAddCar}>
+                              Inserisci Auto
+                           </button>
                         </li>
                         <li>
                            <button onClick={handleLogout}>
@@ -86,7 +92,7 @@ function MyNavbar() {
                         <button>Cerca Auto</button>
                      </li>
                      <li>
-                        <button>Inserisci Auto</button>
+                        <button onClick={handleAddCar}>Inserisci Auto</button>
                      </li>
                      <li>
                         <button>Inserisci Auto</button>

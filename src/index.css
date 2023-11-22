@@ -105,4 +105,24 @@
    .userData > form > div > input {
       @apply border-2 border-slate-200 font-medium placeholder:text-slate-700 rounded-md mt-1 text-center;
    }
+
+   .addCarForm {
+      @apply grid grid-cols-1 gap-3 border-b-2 border-slate-200 pb-5 w-[90vw] bg-white p-4 mt-10;
+   }
+
+   .addCarForm > label {
+      @apply font-bold;
+   }
+
+   .addCarForm > div > div {
+      @apply font-bold mx-2;
+   }
+
+   .addCarForm > div > div > select {
+      @apply border-2 border-slate-200 font-medium placeholder:text-slate-700 rounded-md mt-1 text-center;
+   }
+
+   .addCarForm > input {
+      @apply border-2 border-slate-200 font-medium placeholder:text-slate-700 rounded-md mt-1 text-center;
+   }
 }
