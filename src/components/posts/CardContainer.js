@@ -21,7 +21,7 @@ function CardContainer() {
    }, []);
 
    return (
-      <div>
+      <div className="grid grid-cols-3 justify-items-center gap-8 mx-10">
          {posts &&
             posts.post.map((posts) => (
                <PostCard key={posts._id} post={posts} />

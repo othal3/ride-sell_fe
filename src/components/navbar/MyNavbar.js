@@ -12,13 +12,8 @@ function MyNavbar() {
       navigate("/login");
    };
 
-   const handleLogout = () => {
-      localStorage.removeItem("loggedInUser");
-      navigate("/");
-   };
-
    const handleUser = () => {
-      navigate("/user");
+      navigate("/userData");
    };
 
    const handleAddCar = () => {
@@ -54,11 +49,6 @@ function MyNavbar() {
                         </li>
                         <li>
                            <button onClick={handleAddCar}>
-                              Inserisci Auto
-                           </button>
-                        </li>
-                        <li>
-                           <button onClick={handleLogout}>
                               Inserisci Auto
                            </button>
                         </li>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PostCard({ post }) {
+   const navigate = useNavigate();
    const [author, setAuthor] = useState(null);
    const getAuthors = async () => {
       if (post.authorType === "userModel") {
@@ -30,9 +32,26 @@ function PostCard({ post }) {
       getAuthors();
    }, []);
 
+   const handleProductPage = (e) => {
+      navigate(`/postPage?id=${post._id}`);
+   };
+
    return (
-      <div>
-         <div>{post.img}</div>
+      <div
+         id={post._id}
+         className=" p-6 bg-white my-10 rounded-xl shadow-lg cursor-pointer "
+         onClick={handleProductPage}
+      >
+         <div>
+            <img
+               className=""
+               src={
+                  post && post.img && post.img.length === 0
+                     ? "https://img.icons8.com/ios/500/car--v1.png"
+                     : "https://img.icons8.com/ios/500/car--v1.png"
+               }
+            />
+         </div>
          <div>
             <div>
                <p>

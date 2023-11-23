@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import useSession from "../hooks/useSession";
+import { useNavigate } from "react-router-dom";
 
 function UserData() {
+   const navigate = useNavigate();
    const session = useSession();
    const [image, setImage] = useState(session.avatar);
    const [imagePreview, setImagePreview] = useState(session.avatar);
    const [formData, setFormData] = useState(null);
+
+   const handleLogout = () => {
+      localStorage.removeItem("loggedInUser");
+      navigate("/");
+   };
 
    const handleImageChange = (e) => {
       const file = e.target.files[0];
@@ -81,8 +88,6 @@ function UserData() {
                const newToken = JSON.stringify(data.token);
 
                localStorage.setItem("loggedInUser", newToken);
-
-               window.location.reload();
             }
          } catch (error) {
             console.log(error);
@@ -281,6 +286,12 @@ function UserData() {
                            Invia
                         </button>
                      </form>
+                     <button
+                        onClick={handleLogout}
+                        className=" mt-10 font-bold text-xl bg-purple-400 text-slate-50 py-2.5 px-5 rounded-full flex items-center gap-3 cursor-pointer "
+                     >
+                        Disconnettiti
+                     </button>
                   </div>
                </div>
             </div>
@@ -344,7 +355,7 @@ function UserData() {
                               className=" hidden "
                            />
                            <label
-                              htmlFor="imageIput"
+                              htmlFor="imageInput"
                               className=" font-bold text-xl bg-purple-400 text-slate-50 py-2.5 px-5 rounded-full flex items-center gap-3 cursor-pointer "
                            >
                               <img
@@ -396,6 +407,12 @@ function UserData() {
                            Invia
                         </button>
                      </form>
+                     <button
+                        onClick={handleLogout}
+                        className=" mt-10 font-bold text-xl bg-purple-400 text-slate-50 py-2.5 px-5 rounded-full flex items-center gap-3 cursor-pointer "
+                     >
+                        Disconnettiti
+                     </button>
                   </div>
                </div>
             </div>
